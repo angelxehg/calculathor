@@ -20,16 +20,50 @@ public class Term {
     private ArrayList<Character> variables = new ArrayList<Character>();
 
     public Term(String newTerm) {
-        // TODO: Create from String
-        this.coefficient = 2;
-        this.variables.add('x');
+        this.isPositive = this.getPositive(newTerm);
+        this.coefficient = this.getCoeficient(newTerm);
+        this.variables = this.getVariables(newTerm);
     }
 
-    public Term(String newTermm, Boolean isPositive) {
-        // TODO: Create from String
-        this.coefficient = 5;
-        this.variables.add('y');
-        this.isPositive = isPositive;
+    private Boolean getPositive(String newTerm) {
+        if (this.getOperator(newTerm) == '-') {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private Character getOperator(String newTerm) {
+        Character key = newTerm.charAt(0);
+        if (key.toString().matches("[+,\\-,*,/]+")) {
+            return key;
+        } else {
+            return '+';
+        }
+    }
+
+    private Integer getCoeficient(String newTerm) {
+        Integer value = 1;
+        String newValue = "";
+        for (Character key : newTerm.toCharArray()) {
+            if (key.toString().matches("[0-9]+")) {
+                newValue += key;
+            }
+        }
+        if (newValue != "") {
+            value = Integer.parseInt(newValue);
+        }
+        return value;
+    }
+
+    private ArrayList<Character> getVariables(String newTerm) {
+        ArrayList<Character> variables = new ArrayList<Character>();
+        for (Character key : newTerm.toCharArray()) {
+            if (key.toString().matches("[A-Za-z]+")) {
+                variables.add(key);
+            }
+        }
+        return variables;
     }
 
     public Integer solve(VariableDictionary dictionary) {

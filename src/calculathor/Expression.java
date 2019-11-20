@@ -21,7 +21,7 @@ public class Expression {
         this.dictionary = dictionary;
         // TODO: Create from String
         terms.add(new Term("2x"));
-        terms.add(new Term("5y", false));
+        terms.add(new Term("-5y"));
     }
 
     public Integer solve() {
