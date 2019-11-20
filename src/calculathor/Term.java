@@ -31,7 +31,11 @@ public class Term {
                 result *= value;
             }
         }
-        return result;
+        if (isPositive) {
+            return result;
+        } else {
+            return 0 - result;
+        }
     }
 
 }
