@@ -20,6 +20,8 @@ public class Expression {
     public Expression(String newExpression, VariableDictionary dictionary) {
         this.dictionary = dictionary;
         // TODO: Create from String
+        terms.add(new Term("2x"));
+        terms.add(new Term("5y", false));
     }
 
     public Integer solve() {

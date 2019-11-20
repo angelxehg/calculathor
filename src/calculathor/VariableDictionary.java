@@ -17,6 +17,8 @@ public class VariableDictionary {
 
     public VariableDictionary(String newExpression) {
         // TODO: Create from String
+        variables.put('x', 3);
+        variables.put('y', 2);
     }
 
     public Integer getVariableValue(Character key) {

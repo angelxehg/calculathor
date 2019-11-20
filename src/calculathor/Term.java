@@ -21,11 +21,20 @@ public class Term {
 
     public Term(String newTerm) {
         // TODO: Create from String
+        this.coefficient = 2;
+        this.variables.add('x');
+    }
+
+    public Term(String newTermm, Boolean isPositive) {
+        // TODO: Create from String
+        this.coefficient = 5;
+        this.variables.add('y');
+        this.isPositive = isPositive;
     }
 
     public Integer solve(VariableDictionary dictionary) {
         Integer result = coefficient;
-        for (Character variable : variables) {
+        for (Character variable : this.variables) {
             Integer value = dictionary.getVariableValue(variable);
             if (value > 0) {
                 result *= value;
