@@ -23,6 +23,7 @@ public class Input {
 
     public Integer readInteger(String message) {
         try {
+            System.out.println(message);
             return this.scanner.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("InputMismatchException: " + e.getMessage());
