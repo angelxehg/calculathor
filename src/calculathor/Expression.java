@@ -23,9 +23,9 @@ public class Expression {
     }
 
     private ArrayList<Term> splitTerms(String newExpression) {
-        int nextPlus = newExpression.indexOf("+");
-        int nextMinus = newExpression.indexOf("-");
-        if (nextPlus < 1 && nextMinus < 1) {
+        int nextPlus = newExpression.indexOf("+", 1);
+        int nextMinus = newExpression.indexOf("-", 1);
+        if (nextPlus < 0 && nextMinus < 0) {
             // Base case
             ArrayList<Term> terms = new ArrayList<Term>();
             Term term = new Term(newExpression);
