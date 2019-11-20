@@ -17,8 +17,9 @@ public class Expression {
 
     private VariableDictionary dictionary;
 
-    public Expression(String newExpression, VariableDictionary dictionary) {
-        this.dictionary = dictionary;
+    public Expression(String newExpression) {
+        newExpression = newExpression.trim();
+        this.dictionary = new VariableDictionary(newExpression);
         this.terms = this.splitTerms(newExpression);
     }
 
