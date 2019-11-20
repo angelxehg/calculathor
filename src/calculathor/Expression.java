@@ -19,9 +19,35 @@ public class Expression {
 
     public Expression(String newExpression, VariableDictionary dictionary) {
         this.dictionary = dictionary;
-        // TODO: Create from String
-        terms.add(new Term("2x"));
-        terms.add(new Term("-5y"));
+        this.terms = this.splitTerms(newExpression);
+    }
+
+    private ArrayList<Term> splitTerms(String newExpression) {
+        int nextPlus = newExpression.indexOf("+");
+        int nextMinus = newExpression.indexOf("-");
+        if (nextPlus < 1 && nextMinus < 1) {
+            // Base case
+            ArrayList<Term> terms = new ArrayList<Term>();
+            Term term = new Term(newExpression);
+            terms.add(term);
+            return terms;
+        } else {
+            // Recursive case
+            int index = this.nextIndex(nextPlus, nextMinus);
+            Term term = new Term(newExpression.substring(0, index));
+            String remaining = newExpression.substring(index);
+            ArrayList<Term> terms = this.splitTerms(remaining);
+            terms.add(0, term);
+            return terms;
+        }
+    }
+
+    private int nextIndex(int nextPlus, int nextMinus) {
+        if ((nextPlus < nextMinus && nextPlus > 1) || nextMinus < 1) {
+            return nextPlus;
+        } else {
+            return nextMinus;
+        }
     }
 
     public Integer solve() {

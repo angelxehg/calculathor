@@ -16,7 +16,7 @@ public class CalculaTHOR {
      */
     public static void main(String[] args) {
         Input input = new Input();
-        String newExpression = input.readString("Write expression: ");
+        String newExpression = input.readString("Write expression: ").trim();
         VariableDictionary dictionary = new VariableDictionary(newExpression);
         Expression expression = new Expression(newExpression, dictionary);
         Integer result = expression.solve();
