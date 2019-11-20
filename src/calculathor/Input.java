@@ -15,4 +15,9 @@ public class Input {
         // TODO: Begin Scanner
     }
 
+    public String readString(String message) {
+        // TODO: Read String
+        return null;
+    }
+
 }

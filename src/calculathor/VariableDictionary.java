@@ -5,14 +5,22 @@
  */
 package calculathor;
 
+import java.util.HashMap;
+
 /**
  *
  * @author angel
  */
 public class VariableDictionary {
 
+    private HashMap<Character, Integer> variables = new HashMap<Character, Integer>();
+
     public VariableDictionary(String newExpression) {
         // TODO: Create from String
+    }
+
+    public Integer getVariableValue(Character key) {
+        return variables.get(key);
     }
 
 }

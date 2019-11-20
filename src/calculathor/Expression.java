@@ -5,14 +5,30 @@
  */
 package calculathor;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author angel
  */
 public class Expression {
 
-    public Expression(String newExpression) {
+    private ArrayList<Term> terms = new ArrayList<Term>();
+
+    private VariableDictionary dictionary;
+
+    public Expression(String newExpression, VariableDictionary dictionary) {
+        this.dictionary = dictionary;
         // TODO: Create from String
+    }
+
+    public Integer solve() {
+        Integer result = 0;
+        for (Term term : terms) {
+            Integer value = term.solve(this.dictionary);
+            result += value;
+        }
+        return result;
     }
 
 }
