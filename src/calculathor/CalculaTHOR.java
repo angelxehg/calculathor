@@ -15,7 +15,11 @@ public class CalculaTHOR {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Input input = new Input();
+        String newExpression = input.readString("Write expression: ");
+        Expression expression = new Expression(newExpression);
+        Integer result = expression.solve();
+        System.out.println("Result: " + result);
     }
-    
+
 }
