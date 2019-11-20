@@ -5,19 +5,33 @@
  */
 package calculathor;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
  *
  * @author angel
  */
 public class Input {
 
-    public Input() {
-        // TODO: Begin Scanner
-    }
+    private Scanner scanner = new Scanner(System.in);
 
     public String readString(String message) {
-        // TODO: Read String
-        return null;
+        System.out.println(message);
+        return this.scanner.nextLine();
+    }
+
+    public Integer readInteger(String message) {
+        try {
+            return this.scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("InputMismatchException: " + e.getMessage());
+            return -1;
+        }
+    }
+
+    public void close() {
+        this.scanner.close();
     }
 
 }

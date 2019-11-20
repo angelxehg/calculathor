@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CalculaTHOR",
+            "request": "launch",
+            "mainClass": "calculathor.CalculaTHOR",
+            "projectName": "calculathor_90e29f7e"
+        }
+    ]
+}
